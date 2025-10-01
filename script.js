@@ -31,6 +31,7 @@ function updateTimes(jakartaHour = null) {
         // Slider mode - calculate all times based on Jakarta slider value
         const jakartaHourValue = jakartaHour;
         const userOffset = getTimezoneOffset(userTimezone) - 7;
+        const estOffset = getTimezoneOffset('America/New_York') - 7;
         
         // Your Time
         if (showYourTime) {
@@ -69,8 +70,8 @@ function updateTimes(jakartaHour = null) {
         });
         document.getElementById('utcIcon').textContent = getIcon(utcHour);
         
-        // EST Time
-        const estHour = (jakartaHourValue - 12 + 24) % 24;
+        // EST Time (Jakarta UTC+7 to EST/EDT, currently EDT is UTC-4, so -11 hours)
+        const estHour = (jakartaHourValue - 11 + 24) % 24;
         const estTime = new Date();
         estTime.setHours(estHour, (jakartaHourValue % 1) * 60, 0, 0);
         

@@ -9,22 +9,36 @@
 <body>
     <div class="container">
         <h1>Time Zones</h1>
-        <div class="time-grid">
+        <div class="time-grid" id="timeGrid">
+            <div class="time-card" id="yourTimeCard" style="display: none;">
+                <div class="icon" id="yourIcon">☀️</div>
+                <h2>Your Time</h2>
+                <div class="time" id="yourTime"></div>
+                <div class="location" id="yourLocation">Local Time</div>
+            </div>
             <div class="time-card">
+                <div class="icon" id="myIcon">☀️</div>
                 <h2>My Time</h2>
                 <div class="time" id="myTime"></div>
                 <div class="location">Jakarta</div>
             </div>
             <div class="time-card">
+                <div class="icon" id="utcIcon">☀️</div>
                 <h2>UTC</h2>
                 <div class="time" id="utcTime"></div>
                 <div class="location">Coordinated Universal Time</div>
             </div>
             <div class="time-card">
+                <div class="icon" id="estIcon">☀️</div>
                 <h2>EST</h2>
                 <div class="time" id="estTime"></div>
                 <div class="location">Eastern Standard Time</div>
             </div>
+        </div>
+        <div class="slider-container">
+            <label for="timeSlider">Jakarta Time</label>
+            <input type="range" id="timeSlider" min="0" max="24" step="0.5" value="12">
+            <div class="slider-value" id="sliderValue">12:00</div>
         </div>
     </div>
     <script src="script.js"></script>
